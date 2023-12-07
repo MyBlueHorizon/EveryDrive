@@ -58,6 +58,9 @@
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Graph, Version=5.36.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Graph.5.36.0\lib\netstandard2.0\Microsoft.Graph.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Graph.Core, Version=3.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Graph.Core.3.1.2\lib\net462\Microsoft.Graph.Core.dll</HintPath>
     </Reference>
