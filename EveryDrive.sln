@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.34301.259
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EveryDrive", "EveryDrive\EveryDrive.vbproj", "{816A3F60-C15B-4AC1-A6A3-ABFEAEE849CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDCore", "EDCore\EDCore.csproj", "{817D20E5-C5EA-47FE-BB60-19818394FC07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{816A3F60-C15B-4AC1-A6A3-ABFEAEE849CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{816A3F60-C15B-4AC1-A6A3-ABFEAEE849CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{816A3F60-C15B-4AC1-A6A3-ABFEAEE849CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{817D20E5-C5EA-47FE-BB60-19818394FC07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817D20E5-C5EA-47FE-BB60-19818394FC07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817D20E5-C5EA-47FE-BB60-19818394FC07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817D20E5-C5EA-47FE-BB60-19818394FC07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
