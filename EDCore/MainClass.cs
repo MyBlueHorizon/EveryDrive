@@ -4,55 +4,49 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using System.Threading.Tasks;
 
 namespace EDCore
 {
     public class MainClass
     {
-        public bool CrateClient(string myTenantId, string myClientId)
+        GraphServiceClient graphClient;
+        public void CrateClient(string myTenantId, string myClientId)
         {
-            bool result;
-            try
+            
+            //权限与租户信息
+            var scopes = new[] { "User.Read" };
+            var tenantId = myTenantId;
+            var clientId = myClientId;
+
+            //身份验证
+            var options = new DeviceCodeCredentialOptions
             {
-                var scopes = new[] { "User.Read" };
-
-                // Multi-tenant apps can use "common",
-                // single-tenant apps must use the tenant ID from the Azure portal
-                var tenantId = myTenantId;
-
-                // Value from app registration
-                var clientId = myClientId;
-
-                // using Azure.Identity;
-                var options = new DeviceCodeCredentialOptions
+                AuthorityHost = AzureAuthorityHosts.AzurePublicCloud,
+                ClientId = clientId,
+                TenantId = tenantId,
+                DeviceCodeCallback = (code, cancellation) =>
                 {
-                    AuthorityHost = AzureAuthorityHosts.AzurePublicCloud,
-                    ClientId = clientId,
-                    TenantId = tenantId,
-                    // Callback function that receives the user prompt
-                    // Prompt contains the generated device code that user must
-                    // enter during the auth process in the browser
-                    DeviceCodeCallback = (code, cancellation) =>
-                    {
-                        Console.WriteLine(code.Message);
-                        return Task.FromResult(0);
-                    },
-                };
-
-                // https://learn.microsoft.com/dotnet/api/azure.identity.devicecodecredential
-                var deviceCodeCredential = new DeviceCodeCredential(options);
-
-                var graphClient = new GraphServiceClient(deviceCodeCredential, scopes);
-
-                result = true;
-            }
-            catch (Exception)
-            {
-                result = false;
-                throw;
-            }
-            return result;
+                    Console.WriteLine(code.Message);
+                    MessageBox.Show(code.Message);
+                    return Task.FromResult(0);
+                },
+            };
+            var deviceCodeCredential = new DeviceCodeCredential(options);
+            graphClient = new GraphServiceClient(deviceCodeCredential, scopes); 
+        }
+        public async Task<string> GetUserInformationAsync()
+        {
+            // GET https://graph.microsoft.com/v1.0/me?$select=displayName
+            var user = await graphClient.Me
+                .GetAsync(requestConfiguration =>
+                {
+                    requestConfiguration.QueryParameters.Select =
+                        new string[] { "displayName"};
+                });
+            MessageBox.Show(user.DisplayName);
+            return user.DisplayName;
         }
     }
 }
