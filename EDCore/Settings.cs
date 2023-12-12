@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
 namespace EDCore
@@ -22,7 +18,7 @@ namespace EDCore
                 // appsettings.Development.json" is optional, values override appsettings.json
                 .AddJsonFile($"appsettings.Development.json", optional: true)
                 // User secrets are optional, values override both JSON files
-                .AddUserSecrets<EDCore.MainClass>()
+                .AddUserSecrets<MainClass>()
                 .Build();
 
             return config.GetRequiredSection("Settings").Get<Settings>();
