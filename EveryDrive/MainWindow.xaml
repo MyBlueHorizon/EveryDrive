@@ -10,7 +10,8 @@
         <GroupBox Header="当前用户" HorizontalAlignment="Left" Height="144" VerticalAlignment="Top" Width="219">
             <Grid>
                 <Button Content="登录" HorizontalAlignment="Left" Height="30" Margin="113,82,0,0" VerticalAlignment="Top" Width="84" Click="Button_Click"/>
-                <Label Content="用户名：" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="52"/>
+                <Label x:Name="USERNAME" Content="用户名：" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="52"/>
+                <Label x:Name="EMAIL" Content="邮箱：" HorizontalAlignment="Left" Height="26" Margin="10,36,0,0" VerticalAlignment="Top" Width="52"/>
             </Grid>
         </GroupBox>
 
