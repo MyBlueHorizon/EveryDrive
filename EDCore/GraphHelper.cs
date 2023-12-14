@@ -44,21 +44,26 @@ namespace EDCore
             return response.Token;
         }
 
-        public static Task<User> GetUserAsync()
+        public async static Task<User> GetUserAsync()
         {
             _ = _userClient ??
                 throw new System.NullReferenceException("Graph has not been initialized for user auth");
 
-            return _userClient.Me.GetAsync((config) =>
+            return await _userClient.Me.GetAsync((config) =>
             {
                 config.QueryParameters.Select = new[] { "displayName", "mail", "userPrincipalName" };
             });
         }
 
-#pragma warning disable CS1998
         public async static Task MakeGraphCallAsync()
         {
+            _ = _userClient ??
+                throw new System.NullReferenceException("Graph has not been initialized for user auth");
 
+           await _userClient.Drives.GetAsync((config) =>
+            {
+                config.QueryParameters.Select = new[] { "displayName", "mail", "userPrincipalName" };
+            });
         }
     }
 }
