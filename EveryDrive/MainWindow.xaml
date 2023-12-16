@@ -14,7 +14,16 @@
                 <Label x:Name="EMAIL" Content="邮箱：" HorizontalAlignment="Left" Height="26" Margin="10,36,0,0" VerticalAlignment="Top" Width="52"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="仪表盘" HorizontalAlignment="Left" Height="134" Margin="244,10,0,0" VerticalAlignment="Top" Width="456"/>
+        <GroupBox Header="仪表盘" HorizontalAlignment="Left" Height="134" Margin="244,10,0,0" VerticalAlignment="Top" Width="456">
+            <Label Content="待同步目录数：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="183,0,0,0"/>
+        </GroupBox>
+        <GroupBox Header="添加的同步目录" HorizontalAlignment="Left" Height="154" Margin="10,149,0,0" VerticalAlignment="Top" Width="548">
+            <Button Content="设置" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="587,51,-126,0"/>
+        </GroupBox>
+        <Label Content="上传：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="256,34,0,0"/>
+        <Label Content="下载：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="256,60,0,0"/>
+        <Label Content="已同步目录数：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="438,51,0,0"/>
+        <Button Content="退出" HorizontalAlignment="Left" Margin="602,245,0,0" VerticalAlignment="Top" Width="76" Height="27"/>
 
     </Grid>
 </Window>
